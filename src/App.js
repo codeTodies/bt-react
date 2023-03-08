@@ -1,8 +1,9 @@
+import Main from "./bt-buoi1/Main";
 
 
 function App() {
   return (
-    <div className="App"></div>
+    <Main/>
   );
 }
 
