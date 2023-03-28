@@ -1,8 +1,9 @@
+
 import React from 'react'
 
-function Detail({item}) {
+function Detail({item,isOpen,Type}) {
 
-   if(!item)
+   if(!isOpen)
   {
     return null
   }

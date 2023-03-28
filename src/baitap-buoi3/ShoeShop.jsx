@@ -1,15 +1,16 @@
-import React from 'react'
-import Detail from './Detail'
+
+import React,{useState,useEffect} from 'react'
+import Detail from './Detail';
 import ShoeItem from './ShoeItem'
-function ShoeShop({items,onSelectProduct,onSelectReduce,product,reduce}) {
+function ShoeShop({items,onSelectProduct,product,onClose}) {
     const handleDetail=(item)=>{
     onSelectProduct(item)
   }
-  const handleReduce=(item)=>
-  {
-    onSelectReduce(item)
-  }
-   
+  const [Type,setType]=useState(0);
+  const [isOpen,SetisOpen]=useState(false)
+  useEffect(()=>{
+   SetisOpen(false); 
+  },[Type])
   return (
     <div className='container'>
         <h1 className='text-center'>ShoeShop</h1>
@@ -17,8 +18,8 @@ function ShoeShop({items,onSelectProduct,onSelectReduce,product,reduce}) {
             {items.map(item=>{
                 return (
                     <div key={item.id} className="col-sm-4">
-                        <ShoeItem item={item} product={product} reduce={reduce} onSelectProduct={handleDetail} onSelectReduce={handleReduce} />
-                       
+                        <ShoeItem items={items} item={item} product={product}  onSelectProduct={handleDetail} isOpen={isOpen} onClose={onClose} Type={Type}/>
+                         <button key={item.id} className='btn btn-warning' onClick={()=>{setType(item.id);SetisOpen(true)}}>View detail</button>
                     </div>
                 )
             })}

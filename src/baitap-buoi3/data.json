@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      "id": 0,
       "name": "Adidas Prophere",
       "alias": "adidas-prophere",
       "price": 350,
@@ -10,7 +10,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-prophere.png"
     },
     {
-      "id": 2,
+      "id": 1,
       "name": "Adidas Prophere Black White",
       "alias": "adidas-prophere-black-white",
       "price": 450,
@@ -20,7 +20,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-prophere-black-white.png"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Adidas Prophere Customize",
       "alias": "adidas-prophere-customize",
       "price": 375,
@@ -30,7 +30,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-prophere-customize.png"
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "Adidas Super Star Red",
       "alias": "adidas-super-star-red",
       "price": 465,
@@ -40,7 +40,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-super-star-red.png"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Adidas Swift Run",
       "alias": "adidas-swift-run",
       "price": 550,
@@ -50,7 +50,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-swift-run.png"
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "Adidas Tenisky Super Star",
       "alias": "adidas-tenisky-super-star",
       "price": 250,
@@ -60,7 +60,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-tenisky-super-star.png"
     },
     {
-      "id": 7,
+      "id": 6,
       "name": "Adidas Ultraboost 4",
       "alias": "adidas-ultraboost-4",
       "price": 450,
@@ -70,7 +70,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-ultraboost-4.png"
     },
     {
-      "id": 8,
+      "id": 7,
       "name": "Adidas Yeezy 350",
       "alias": "adidas-yeezy-350",
       "price": 750,
@@ -80,7 +80,7 @@
       "image": "http://svcy3.myclass.vn/images/adidas-yeezy-350.png"
     },
     {
-      "id": 9,
+      "id": 8,
       "name": "Nike Adapt BB",
       "alias": "nike-adapt-bb",
       "price": 630,
@@ -90,7 +90,7 @@
       "image": "http://svcy3.myclass.vn/images/nike-adapt-bb.png"
     },
     {
-      "id": 10,
+      "id": 9,
       "name": "Nike Air Max 97",
       "alias": "nike-air-max-97",
       "price": 650,
@@ -100,7 +100,7 @@
       "image": "http://svcy3.myclass.vn/images/nike-air-max-97.png"
     },
     {
-      "id": 11,
+      "id": 10,
       "name": "Nike Air Max 97 Blue",
       "alias": "nike-air-max-97-blue",
       "price": 450,
@@ -110,7 +110,7 @@
       "image": "http://svcy3.myclass.vn/images/nike-air-max-97-blue.png"
     },
     {
-      "id": 12,
+      "id": 11,
       "name": "Nike Air Max 270 React",
       "alias": "nike-air-max-270-react",
       "price": 750,
