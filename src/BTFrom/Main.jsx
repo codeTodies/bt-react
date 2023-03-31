@@ -1,99 +1,100 @@
+// Source:https://github.com/danndz/bc42-react/tree/master/src/BT_UserManagement
 import React,{useState,useEffect} from 'react'
 import axios from "axios";
 import List from './List';
 import Form from './Form';
 import Search from './Search';
-function UserManagement() {
+function ProductsManagement() {
   // state quản lý danh sách người dùng
-  const [users, setUsers] = useState([]);
+  const [Products, setProducts] = useState([]);
   // state quản lý user đang được chọn
-  const [selectedUser, setSelectedUser] = useState({});
+  const [selectedProducts, setSelectedProducts] = useState({});
   // state quản lý giá trị tìm kiếm
-  const [searchByEmail, setSearchByEmail] = useState("");
+  const [searchByName, setSearchByName] = useState("");
 
-  // Viết hàm call API để lấy danh sách users
-  const fetchUsers = async () => {
+  // Viết hàm call API để lấy danh sách Products
+  const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "https://63e86415ac3920ad5beb7b08.mockapi.io/api/users",
+        "https://63f643b459c944921f70c150.mockapi.io/products",
         {
           params: {
-            email: searchByEmail || undefined,
+            name: searchByName || undefined,
           },
         }
       );
-      setUsers(response.data);
+      setProducts(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Viết hàm xử lý nhận vào object user và thêm hoặc cập nhật user
-  const handleSubmit = async (user) => {
-    const { id, ...payload } = user;
+  // Viết hàm xử lý nhận vào object Products và thêm hoặc cập nhật Products
+  const handleSubmit = async (Products) => {
+    const { id, ...payload } = Products;
 
     try {
       if (id) {
         // Cập nhật
         await axios.put(
-          `https://63e86415ac3920ad5beb7b08.mockapi.io/api/users/${id}`,
+          `https://63f643b459c944921f70c150.mockapi.io/products/${id}`,
           payload
         );
       } else {
         // Thêm mới
         await axios.post(
-          "https://63e86415ac3920ad5beb7b08.mockapi.io/api/users",
+          "https://63f643b459c944921f70c150.mockapi.io/products",
           payload
         );
       }
-      // Gọi hàm fetchUser sau khi call API create/update
-      fetchUsers();
+      // Gọi hàm fetchProducts sau khi call API create/update
+      fetchProducts();
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Viết hàm xử lý nhận vào userId và xoá user
-  const handleDeleteUser = async (userId) => {
+  // Viết hàm xử lý nhận vào ProductsId và xoá Products
+  const handleDeleteProducts = async (ProductsId) => {
     try {
       await axios.delete(
-        `https://63e86415ac3920ad5beb7b08.mockapi.io/api/users/${userId}`
+        `https://63f643b459c944921f70c150.mockapi.io/products/${ProductsId}`
       );
       // Sau khi xoá thành công, dữ liệu chỉ mới thay đổi ở phía server
-      // Cần gọi lại hàm fetchUsers để gọi API lấy danh sách users mới nhất và set lại cho state users
-      fetchUsers();
+      // Cần gọi lại hàm fetchProducts để gọi API lấy danh sách Products mới nhất và set lại cho state Products
+      fetchProducts();
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Viết hàm xử lý nhận vào object user, và lưu vào state selectedUser
-  const handleSelectUser = (user) => {
-    setSelectedUser(user);
+  // Viết hàm xử lý nhận vào object Products, và lưu vào state selectedProducts
+  const handleSelectProducts = (Products) => {
+    setSelectedProducts(Products);
   };
 
   // Viết hàm xử lý nhận vào giá trị searchString
   const handleSearch = (searchString) => {
-    setSearchByEmail(searchString);
-    // ?: Khi state searchByEmail thay đổi, ta muốn gọi lại hàm fetchUser
+    setSearchByName(searchString);
+    // ?: Khi state searchByEmail thay đổi, ta muốn gọi lại hàm fetchProducts
     // => Đưa state searchByEmail vào array của useEffect
   };
 
   useEffect(() => {
-    fetchUsers();
-  }, [searchByEmail]);
+    fetchProducts();
+  }, [searchByName]);
 
   return (
     <div className="container-fluid">
-      <h1 className="text-center text-primary">User management</h1>
+      <h1 className="text-center text-primary bg-secondary">Phone management</h1>
 
       <div className="card">
-        <div className="card-header bg-dark text-white">User Form</div>
+        <div className="card-header bg-dark text-white">Product Form</div>
         <div className="card-body">
           <Form
-            user={selectedUser}
+            Products={selectedProducts}
             onSubmit={handleSubmit}
-            onReset={() => setSelectedUser({})}
+            onReset={() => setSelectedProducts({})}
           />
         </div>
       </div>
@@ -104,13 +105,13 @@ function UserManagement() {
 
       <div className="mt-4">
         <List
-          users={users}
-          onDeleteUser={handleDeleteUser}
-          onSelectUser={handleSelectUser}
+          Products={Products}
+          onDeleteProducts={handleDeleteProducts}
+          onSelectProducts={handleSelectProducts}
         />
       </div>
     </div>
   );
 }
 
-export default UserManagement;
+export default ProductsManagement;

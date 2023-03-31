@@ -1,19 +1,19 @@
 import React,{useEffect,useState} from 'react'
 
-function Form({ user, onSubmit, onReset }) {
+function Form({ Products, onSubmit, onReset }) {
   // state quản lý giá trị của các input trong form
   const [values, setValues] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    address: "",
+    name: "",
+    type: "",
+    description: "",
+    price: "",
   });
 
-  // Hàm setup của useEffect sẽ được chạy ở sau lần render đầu tiên và sau mỗi lần render tiếp theo nếu giá trị của prop user bị thay đổi
+  // Hàm setup của useEffect sẽ được chạy ở sau lần render đầu tiên và sau mỗi lần render tiếp theo nếu giá trị của prop Products bị thay đổi
   useEffect(() => {
     // Dùng giá trị mới của prop user để cập nhật cho state values
-    setValues(user);
-  }, [user]);
+    setValues(Products);
+  }, [Products]);
 
   const handleChange = (evt) => {
     const { value, name } = evt.target;
@@ -36,10 +36,10 @@ function Form({ user, onSubmit, onReset }) {
 
   const handleResetForm = () => {
     setValues({
-      firstName: "",
-      lastName: "",
-      email: "",
-      address: "",
+    name: "",
+    type: "",
+    description: "",
+    price: "",
     });
     onReset();
   };
@@ -47,45 +47,45 @@ function Form({ user, onSubmit, onReset }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label className="form-label">First Name</label>
+        <label className="form-label">Name</label>
         <input
           type="text"
-          name="firstName"
+          name="name"
           className="form-control"
-          value={values.firstName}
+          value={values.name}
           onChange={handleChange}
         />
       </div>
 
       <div className="mb-3">
-        <label className="form-label">Last Name</label>
+        <label className="form-label">Type</label>
         <input
           type="text"
-          name="lastName"
+          name="type"
           className="form-control"
-          value={values.lastName}
+          value={values.type}
           onChange={handleChange}
         />
       </div>
 
       <div className="mb-3">
-        <label className="form-label">Email</label>
+        <label className="form-label">Description</label>
         <input
-          type="email"
+          type="text"
           className="form-control"
-          name="email"
-          value={values.email}
+          name="description"
+          value={values.description}
           onChange={handleChange}
         />
       </div>
 
       <div className="mb-3">
-        <label className="form-label">Address</label>
+        <label className="form-label">Price</label>
         <input
           type="text"
           className="form-control"
-          name="address"
-          value={values.address}
+          name="price"
+          value={values.price}
           onChange={handleChange}
         />
       </div>

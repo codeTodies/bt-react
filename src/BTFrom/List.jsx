@@ -1,35 +1,35 @@
 import React from 'react'
 
-function List({ users, onDeleteUser, onSelectUser }) {
+function List({ Products, onDeleteProducts, onSelectProducts }) {
   return (
     <table className="table">
       <thead>
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Address</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Price</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {users.map((user) => {
+        {Products.map((product) => {
           return (
-            <tr key={user.id}>
-              <td>{user.firstName}</td>
-              <td>{user.lastName}</td>
-              <td>{user.email}</td>
-              <td>{user.address}</td>
+            <tr key={product.id}>
+              <td>{product.name}</td>
+              <td>{product.type}</td>
+              <td>{product.description}</td>
+              <td>{product.price}</td>
               <td>
                 <button
                   className="btn btn-warning me-2"
-                  onClick={() => onSelectUser(user)}
+                  onClick={() => onSelectProducts(product)}
                 >
                   Edit
                 </button>
                 <button
                   className="btn btn-danger"
-                  onClick={() => onDeleteUser(user.id)}
+                  onClick={() => onDeleteProducts(product.id)}
                 >
                   Delete
                 </button>

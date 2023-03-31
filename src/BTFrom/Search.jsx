@@ -11,7 +11,7 @@ function Search({ onSearch }) {
     <div className="w-25 d-flex">
       <input
         className="form-control"
-        placeholder="Search by email"
+        placeholder="Search by name"
         value={searchString}
         onChange={handleChange}
       />
