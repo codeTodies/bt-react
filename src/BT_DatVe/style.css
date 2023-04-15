@@ -1,0 +1,30 @@
+.screen
+{
+  height: 50px;
+  background: white;
+  width: 100%;
+  transform: rotateX(-30deg) scale(1.1);
+  box-shadow: 0 3px 10px 2px;
+  font-size:24px
+}
+.seat {
+  display: inline-block;
+  background: #626262;
+  width: 16px;
+  height: 12px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+.seat.empty
+{
+    background:#0dcae9
+}
+.seat.full
+{
+  background: red;
+}
+.seat.is-selected
+{
+  background: #ffc107;
+}
